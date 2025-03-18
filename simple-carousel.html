@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container {
+            position: relative;
+            background-color: rgb(217, 217, 248);
+            height: auto;
+            width: 90%;
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <section-heading color="green" textAlign="center">
+        This is a heading
+    </section-heading>
+    <div class="container">
+        <simple-carousel slideWidth="200" maxItems="2">
+            <div slot="slide">lorem100t</div>
+            <div slot="slide">Slide 2 Content</div>
+            <div slot="slide">Slide 3 Content</div>
+            <div slot="slide">Slide 4 Content</div>
+        </simple-carousel>
+    </div>
+
+    <script src="simple-carousel.js"></script>
+    <script src="section-heading.js"></script>
+</body>
+</html>
