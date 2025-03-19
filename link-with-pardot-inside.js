@@ -10,9 +10,10 @@ class LinkWithPardotInside extends HTMLElement {
     }
 
     connectedCallback() {
-        this.render()
+        setTimeout(() => {
+            this.render()
+        }, 1000)
     }
-
 
     render() {
         const link = document.createElement("a");
