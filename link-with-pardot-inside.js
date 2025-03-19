@@ -10,9 +10,7 @@ class LinkWithPardotInside extends HTMLElement {
     }
 
     connectedCallback() {
-        setTimeout(() => {
-            this.render()
-        }, 1000)
+        this.render()
     }
 
     render() {
@@ -24,6 +22,8 @@ class LinkWithPardotInside extends HTMLElement {
 
         this.innerHTML = "";
         this.appendChild(link);
+
+        console.log(this.textContent)
     }
 }
 
