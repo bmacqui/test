@@ -8,26 +8,18 @@ class LinkWithPardotInside extends HTMLElement {
     handleProps() {
         this.hrefUrl = this.getAttribute("href-url") || "#";
         this.pardotRegion = this.getAttribute("pardot-region") || "";
-        this.text = this.getAttribute("text")
     }
 
 
     render() {
-        // const wrapper = document.createElement("div");
+        const link = document.createElement("a");
+        link.href = this.getAttribute("href-url") || "#";
+        link.setAttribute("pardot-region", this.getAttribute("pardot-region") || "");
+    
+        link.innerHTML = this.innerHTML;
 
-        // wrapper.innerHTML = `
-        //     <a href="${this.hrefUrl}">
-        //         ${this.text}
-        //     </a>
-        // `
-        // this.appendChild(wrapper)
-
-        const link = document.createElement("a")
-        link.setAttribute("href", this.hrefUrl)
-        link.setAttribute("pardot-region", this.pardotRegion)
-        link.textContent = this.text
-
-        this.appendChild(link)
+        this.innerHTML = "";
+        this.appendChild(link);
     }
 }
 
