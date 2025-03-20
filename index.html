@@ -3,87 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Component Carousel</title>
+    <title>Document</title>
 </head>
 <body>
-    <custom-carousel>
-        <div slot="slide">Slide 1 Content</div>
-        <div slot="slide">Slide 2 Content</div>
-        <div slot="slide">Slide 3 Content</div>
-    </custom-carousel>
-
-    <script>
-        class CustomCarousel extends HTMLElement {
-            constructor() {
-                super();
-                this.attachShadow({ mode: "open" });
-                this.currentSlide = 0;
-                this.render();
-            }
-
-            connectedCallback() {
-                this.updateSlides();
-                this.shadowRoot.querySelector(".next").addEventListener("click", () => this.nextSlide());
-                this.shadowRoot.querySelector(".prev").addEventListener("click", () => this.prevSlide());
-            }
-
-            render() {
-                const link = document.createElement("link")
-                link.setAttribute("rel", "stylesheet")
-                link.setAttribute("href", "simple-carousel.css")
-
-                const wrapper = document.createElement("div")
-                wrapper.innerHTML = `
-                    <div class="carousel">
-                        <div class="slides">
-                            <slot name="slide" class="slide"></slot>
-                        </div>
-                        <div class="controls">
-                            <button class="prev">&#9665;</button>
-                            <button class="next">&#9655;</button>
-                        </div>
-                    </div>
-                `
-
-                this.shadowRoot.append(link, wrapper)
-            }
-
-            updateSlides() {
-                const slides = this.shadowRoot.querySelector(".slides");
-                const slot = this.shadowRoot.querySelector("slot");
-                const nodes = slot.assignedNodes().filter(node => node.nodeType === 1);
-                slides.innerHTML = "";
-                nodes.forEach((node, index) => {
-                    const slide = document.createElement("div");
-                    slide.classList.add("slide");
-                    slide.appendChild(node.cloneNode(true));
-                    slides.appendChild(slide);
-                });
-                this.slides = slides.children;
-                this.updatePosition();
-            }
-
-            updatePosition() {
-                const offset = -this.currentSlide * 300;
-                this.shadowRoot.querySelector(".slides").style.transform = `translateX(${offset}px)`;
-            }
-
-            nextSlide() {
-                if (this.currentSlide < this.slides.length - 1) {
-                    this.currentSlide++;
-                    this.updatePosition();
-                }
-            }
-
-            prevSlide() {
-                if (this.currentSlide > 0) {
-                    this.currentSlide--;
-                    this.updatePosition();
-                }
-            }
-        }
-
-        customElements.define("custom-carousel", CustomCarousel);
-    </script>
+    
+    <div pardot-region="heading1">
+        <without-pardot>
+            hello
+        </without-pardot>
+    </div>
+    
+    <script src="comp-without-pardot.js" ></script>
 </body>
 </html>

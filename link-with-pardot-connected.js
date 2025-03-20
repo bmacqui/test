@@ -17,12 +17,9 @@ class LinkWithPardotInside extends HTMLElement {
         const link = document.createElement("a");
         link.href = this.getAttribute("href-url") || "#";
         link.setAttribute("pardot-region", this.getAttribute("pardot-region") || "");
-        link.textContent = this.textContent
+    
+        link.innerHTML = this.innerHTML;
 
-        // gets the innerHTML of the web component (plain text) and inserts to the link
-        // link.innerHTML = this.innerHTML;
-
-        // removes inner html
         this.innerHTML = "";
         this.appendChild(link);
     }
